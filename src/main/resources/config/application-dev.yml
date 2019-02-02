@@ -13,10 +13,10 @@
 
 spring:
   datasource:
-    url: jdbc:postgresql://127.0.0.1:5432/qqyrxcgq
+    url: jdbc:postgresql://127.0.0.1:5432/pasho
 
     username: postgres
-    password: kka
+    password: arsham
     driverClassName: org.postgresql.Driver
     hikari:
            data-source-properties:
