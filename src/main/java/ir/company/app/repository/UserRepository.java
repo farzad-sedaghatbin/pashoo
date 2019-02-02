@@ -28,8 +28,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     User findOneByGuestId(String guestId);
 
-    User findByLeagues(League league);
-
     @Override
     void delete(User t);
 
