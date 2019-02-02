@@ -20,9 +20,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findAllByActivatedIsFalseAndCreatedDateBefore(ZonedDateTime dateTime);
 
-    @Query("select u.avatar,u.score,u.login,u.id from User u ")
-    Page<Object[]> topPlayer(Pageable pageable);
-
     Optional<User> findOneByResetKeyAndMobile(String resetKey,String mobile);
 
     Optional<User> findOneByEmail(String email);
