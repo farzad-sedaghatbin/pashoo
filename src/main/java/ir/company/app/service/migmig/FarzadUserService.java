@@ -85,11 +85,6 @@ public class FarzadUserService {
                 User user = userRepository.findOneByLogin(loginDTO.getUsername().toLowerCase());
                 user.setPushSessionKey(loginDTO.getDeviceToken());
                 userRepository.save(user);
-                HomeDTO userLoginDTO = userService.refreshV2(false, loginDTO.getUsername().toLowerCase());
-                userLoginDTO.token = jwt;
-                userLoginDTO.user = user.getLogin();
-
-                return ResponseEntity.ok(userLoginDTO);
             }
         } catch (AuthenticationException exception) {
             return new ResponseEntity<>(Collections.singletonMap("AuthenticationException", exception.getLocalizedMessage()), HttpStatus.UNAUTHORIZED);
@@ -195,9 +190,7 @@ public class FarzadUserService {
         if ((s[1] != "null") && user.getInvitedUser1() == null) {
             User invited = userRepository.findOneByLogin(s[0].toLowerCase());
             if (invited != null) {
-                invited.setCoin(invited.getCoin() + Constants.invited);
                 userRepository.save(invited);
-                user.setCoin(user.getCoin() + +Constants.invite);
                 user.setInvitedUser1(invited);
                 returns = "200";
             } else {
@@ -206,8 +199,6 @@ public class FarzadUserService {
         } else if ((s[1] != "null" && s[1] != "") && user.getInvitedUser2() == null) {
             User invited = userRepository.findOneByLogin(s[0].toLowerCase());
             if (invited != null) {
-                invited.setCoin(invited.getCoin() + Constants.invited);
-                user.setCoin(user.getCoin() + +Constants.invite);
                 userRepository.save(invited);
                 user.setInvitedUser2(invited);
                 returns = "200";
@@ -218,8 +209,6 @@ public class FarzadUserService {
             User invited = userRepository.findOneByLogin(s[0].toLowerCase());
             if (invited != null) {
 
-                invited.setCoin(invited.getCoin() + Constants.invited);
-                user.setCoin(user.getCoin() + +Constants.invite);
                 user.setInvitedUser3(invited);
                 userRepository.save(invited);
                 returns = "200";
@@ -327,10 +316,6 @@ public class FarzadUserService {
             String jwt = tokenProvider.createToken(authentication, true);
             response.addHeader(JWTConfigurer.AUTHORIZATION_HEADER, "Bearer " + jwt);
 
-            HomeDTO userLoginDTO = userService.refreshV2(false, user.get().getLogin());
-            userLoginDTO.token = jwt;
-            userLoginDTO.user = user.get().getLogin();
-
             user1.setPassword(passwordEncoder.encode("123"));
             user1.setResetDate(ZonedDateTime.now());
             userRepository.save(user1);
@@ -399,7 +384,6 @@ public class FarzadUserService {
         profileDTO.avatar = user.getAvatar();
         profileDTO.setUsername(user.getLogin());
         profileDTO.guest = user.getGuest();
-        profileDTO.level = user.getLevel();
         Query q = em.createNativeQuery("SELECT * FROM (SELECT id,row_number() OVER (ORDER BY score DESC) FROM jhi_user ) as gr WHERE  id =?");
         q.setParameter(1, user.getId());
         Object[] o = (Object[]) q.getSingleResult();
@@ -423,7 +407,6 @@ public class FarzadUserService {
         user.setGuestId(user.getLogin());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setActivated(true);
-        user.setCoin(Constants.newUser);
         user.setCreatedBy("system");
         user.setGuest(true);
         List<Authority> authorities = new ArrayList<>();
@@ -450,7 +433,6 @@ public class FarzadUserService {
             response.addHeader(JWTConfigurer.AUTHORIZATION_HEADER, "Bearer " + jwt);
 
 
-            guestDTO = userService.refreshV2(false, user.getLogin());
             guestDTO.token = jwt;
             guestDTO.guest = true;
             guestDTO.user = user.getLogin();
