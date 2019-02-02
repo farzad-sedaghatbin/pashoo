@@ -1,0 +1,40 @@
+# ===================================================================
+# Spring Boot configuration for the "dev" profile.
+#
+# This configuration overrides the application.yml file.
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/qqyrxcgq
+
+    username: postgres
+    password: kka
+    driverClassName: org.postgresql.Driver
+    hikari:
+           data-source-properties:
+             cachePrepStmts: true
+#             prepStmtCacheSize: 250
+#             prepStmtCacheSqlLimit: 2048
+             maximumPoolSize: 1
+
+  jpa:
+    database-platform: ir.company.app.domain.util.FixedPostgreSQL82Dialect
+
+    database: POSTGRESQL
+    hibernate.ddl-auto: update
+    show_sql: true
+    properties:
+         hibernate.cache.use_second_level_cache: false
+server:
+    port: 8080
+
+liquibase:
+    contexts: prod
