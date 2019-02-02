@@ -131,7 +131,7 @@ public class FarzadUserService {
         try {
             String tel = user1.getMobile();
 
-            KavenegarApi api = new KavenegarApi("5635717141617A52534F636F49546D38454E647870773D3D");
+            KavenegarApi api = new KavenegarApi("6F442B597454543263327452344D3876636C7443735034476B7170577571376F");
 //                api.send("10006006606600", tel, "شماره بازیابی :  " + s);
 
             api.verifyLookup(tel, s, "pashosignup");
