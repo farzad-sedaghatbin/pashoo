@@ -77,21 +77,10 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(name = "mobile", nullable = true)
     private String mobile;
 
-    @Column(name = "score", nullable = true)
-    private long score = 0;
-
-    @Column(name = "coin", nullable = true)
-    private int coin = 300;
-
 
     @Column(name = "avatar", nullable = true)
     private String avatar;
 
-    @Column(name = "gem", nullable = true)
-    private int gem = 0;
-
-    @Column(name = "level", nullable = true)
-    private int level = 0;
 
     @Size(max = 50)
     @Column(name = "push_session_key", length = 50)
@@ -106,29 +95,12 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     private Boolean guest;
 
-
-    @Column(name = "win", nullable = true)
-    private int win = 0;
-    @Column(name = "lose", nullable = true)
-    private int lose = 0;
-
-    @Column(name = "draw", nullable = true)
-    private int draw = 0;
-
-
-    @Column(name = "win_in_row", nullable = true)
-    private int winInRow = 0;
-
-    @Column(name = "max_win_in_row", nullable = true)
-    private int maxWinInRow = 0;
-
     private ZonedDateTime lastRoulette;
     private ZonedDateTime lastVideo;
 
     @OneToMany(fetch = FetchType.EAGER)
     private List<Avatar> avatars;
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "userList")
-    private List<League> leagues;
+
     @ManyToOne
     private User invitedUser2;
     @ManyToOne
@@ -136,90 +108,6 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @ManyToOne
     private User invitedUser1;
 
-    private ZonedDateTime expireExp;
-    private double expRatio = 0d;
-
-    public Boolean getGuest() {
-        return guest;
-    }
-
-    public void setGuest(Boolean guest) {
-        this.guest = guest;
-    }
-
-//    @JsonIgnore
-//    @JoinTable(
-//        name = "jhi_user_authority",
-//        joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
-//        inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "name")})
-//    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-//
-//    private List<Authority> authorities = new ArrayList<>();
-
-
-    public ZonedDateTime getExpireExp() {
-        return expireExp;
-    }
-
-    public void setExpireExp(ZonedDateTime expireExp) {
-        this.expireExp = expireExp;
-    }
-
-    public double getExpRatio() {
-        return expRatio;
-    }
-
-    public void setExpRatio(double expRatio) {
-        this.expRatio = expRatio;
-    }
-
-    public User getInvitedUser2() {
-        return invitedUser2;
-    }
-
-    public void setInvitedUser2(User invitedUser2) {
-        this.invitedUser2 = invitedUser2;
-    }
-
-    public User getInvitedUser3() {
-        return invitedUser3;
-    }
-
-    public void setInvitedUser3(User invitedUser3) {
-        this.invitedUser3 = invitedUser3;
-    }
-
-    public User getInvitedUser1() {
-        return invitedUser1;
-    }
-
-    public void setInvitedUser1(User invitedUser1) {
-        this.invitedUser1 = invitedUser1;
-    }
-
-    public ZonedDateTime getLastVideo() {
-        return lastVideo;
-    }
-
-    public void setLastVideo(ZonedDateTime lastVideo) {
-        this.lastVideo = lastVideo;
-    }
-
-    public List<League> getLeagues() {
-        return leagues;
-    }
-
-    public void setLeagues(List<League> leagues) {
-        this.leagues = leagues;
-    }
-
-    public int getMaxWinInRow() {
-        return maxWinInRow;
-    }
-
-    public void setMaxWinInRow(int maxWinInRow) {
-        this.maxWinInRow = maxWinInRow;
-    }
 
     public Long getId() {
         return id;
@@ -267,6 +155,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getGuestId() {
+        return guestId;
+    }
+
+    public void setGuestId(String guestId) {
+        this.guestId = guestId;
     }
 
     public boolean isActivated() {
@@ -325,28 +221,12 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.mobile = mobile;
     }
 
-    public int getCoin() {
-        return coin;
-    }
-
-    public void setCoin(int coin) {
-        this.coin = coin;
-    }
-
     public String getAvatar() {
         return avatar;
     }
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
-    }
-
-    public int getGem() {
-        return gem;
-    }
-
-    public void setGem(int gem) {
-        this.gem = gem;
     }
 
     public String getPushSessionKey() {
@@ -365,93 +245,12 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.gender = gender;
     }
 
-    public void setScore(long score) {
-        this.score = score;
+    public Boolean getGuest() {
+        return guest;
     }
 
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    public long getScore() {
-        return score;
-    }
-
-    public int getWin() {
-        return win;
-    }
-
-    public void setWin(int win) {
-        this.win = win;
-    }
-
-    public int getLose() {
-        return lose;
-    }
-
-    public void setLose(int lose) {
-        this.lose = lose;
-    }
-
-    public int getDraw() {
-        return draw;
-    }
-
-    public void setDraw(int draw) {
-        this.draw = draw;
-    }
-
-    public int getWinInRow() {
-        return winInRow;
-    }
-
-    public void setWinInRow(int winInRow) {
-        this.winInRow = winInRow;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        User user = (User) o;
-
-        return login.equals(user.login);
-
-    }
-
-    public String getGuestId() {
-        return guestId;
-    }
-
-    public void setGuestId(String guestId) {
-        this.guestId = guestId;
-    }
-
-    @Override
-    public int hashCode() {
-        return login.hashCode();
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-            "login='" + login + '\'' +
-            ", firstName='" + firstName + '\'' +
-            ", lastName='" + lastName + '\'' +
-            ", email='" + email + '\'' +
-            ", activated='" + activated + '\'' +
-            ", langKey='" + langKey + '\'' +
-            ", activationKey='" + activationKey + '\'' +
-            "}";
+    public void setGuest(Boolean guest) {
+        this.guest = guest;
     }
 
     public ZonedDateTime getLastRoulette() {
@@ -462,13 +261,43 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.lastRoulette = lastRoulette;
     }
 
+    public ZonedDateTime getLastVideo() {
+        return lastVideo;
+    }
+
+    public void setLastVideo(ZonedDateTime lastVideo) {
+        this.lastVideo = lastVideo;
+    }
+
     public List<Avatar> getAvatars() {
-        if (avatars == null)
-            return new ArrayList<>();
         return avatars;
     }
 
     public void setAvatars(List<Avatar> avatars) {
         this.avatars = avatars;
+    }
+
+    public User getInvitedUser2() {
+        return invitedUser2;
+    }
+
+    public void setInvitedUser2(User invitedUser2) {
+        this.invitedUser2 = invitedUser2;
+    }
+
+    public User getInvitedUser3() {
+        return invitedUser3;
+    }
+
+    public void setInvitedUser3(User invitedUser3) {
+        this.invitedUser3 = invitedUser3;
+    }
+
+    public User getInvitedUser1() {
+        return invitedUser1;
+    }
+
+    public void setInvitedUser1(User invitedUser1) {
+        this.invitedUser1 = invitedUser1;
     }
 }
