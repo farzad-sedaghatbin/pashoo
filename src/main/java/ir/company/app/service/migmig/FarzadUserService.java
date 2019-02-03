@@ -100,22 +100,22 @@ public class FarzadUserService {
     public ResponseEntity<?> signUp(@Valid @RequestBody UserDTO userDTO, HttpServletResponse response) throws JsonProcessingException {
 
 
-        User exist = userRepository.findOneByLogin(userDTO.getMobile());
-        if (exist != null) {
-            return ResponseEntity.badRequest().build();
+        User user = userRepository.findOneByLogin(userDTO.getMobile());
+
+        if (user == null) {
+
+             user = new User();
+            user.setLogin(userDTO.getMobile());
+            user.setActivated(true);
+            user.setCreatedBy("system");
+            user.setPassword("123");
+            List<Authority> authorities = new ArrayList<>();
+            authorities.add(authorityRepository.findOne(AuthoritiesConstants.USER));
+            user.setMobile(userDTO.getMobile());
+            user.setGuest(false);
+            userRepository.save(user);
+
         }
-        User user = new User();
-        user.setLogin(userDTO.getMobile());
-        user.setActivated(true);
-        user.setCreatedBy("system");
-        user.setPassword("123");
-        List<Authority> authorities = new ArrayList<>();
-        authorities.add(authorityRepository.findOne(AuthoritiesConstants.USER));
-        user.setMobile(userDTO.getMobile());
-        user.setGuest(false);
-        userRepository.save(user);
-
-
         int START = 1000;
         int END = 9999;
         Random random = new Random();
@@ -124,12 +124,12 @@ public class FarzadUserService {
         long fraction = (long) (range * random.nextDouble());
         int randomNumber = (int) (fraction + START);
         String s = String.valueOf(randomNumber);
-        User user1 = user;
-        user1.setResetKey(s);
+
+        user.setResetKey(s);
 //            user1.setResetDate();
-        userRepository.save(user1);
+        userRepository.save(user);
         try {
-            String tel = user1.getMobile();
+            String tel = user.getMobile();
 
             KavenegarApi api = new KavenegarApi("6F442B597454543263327452344D3876636C7443735034476B7170577571376F");
 //                api.send("10006006606600", tel, "شماره بازیابی :  " + s);
