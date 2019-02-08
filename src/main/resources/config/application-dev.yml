@@ -34,7 +34,7 @@ spring:
     properties:
          hibernate.cache.use_second_level_cache: false
 server:
-    port: 8080
+    port: 80
 
 liquibase:
     contexts: prod

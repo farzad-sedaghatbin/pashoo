@@ -108,7 +108,7 @@ public class FarzadUserService {
             user.setLogin(userDTO.getMobile());
             user.setActivated(true);
             user.setCreatedBy("system");
-            user.setPassword("123");
+            user.setPassword(passwordEncoder.encode("123"));
             List<Authority> authorities = new ArrayList<>();
             authorities.add(authorityRepository.findOne(AuthoritiesConstants.USER));
             user.setMobile(userDTO.getMobile());
