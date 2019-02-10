@@ -13,6 +13,7 @@ import ir.company.app.repository.AuthorityRepository;
 import ir.company.app.repository.ErrorLogRepository;
 import ir.company.app.repository.UserRepository;
 import ir.company.app.security.AuthoritiesConstants;
+import ir.company.app.security.SecurityUtils;
 import ir.company.app.security.jwt.JWTConfigurer;
 import ir.company.app.security.jwt.TokenProvider;
 import ir.company.app.service.UserService;
@@ -104,7 +105,7 @@ public class FarzadUserService {
 
         if (user == null) {
 
-             user = new User();
+            user = new User();
             user.setLogin(userDTO.getMobile());
             user.setActivated(true);
             user.setCreatedBy("system");
@@ -154,10 +155,10 @@ public class FarzadUserService {
 
     public ResponseEntity<?> changeAvatar(@Valid @RequestBody String data) {
 
-        String[] s = data.split(",");
-        User user = userRepository.findOneByLogin(s[1].toLowerCase());
+//        String[] s = data.split(",");
+        User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin());
 
-        user.setAvatar(s[0]);
+        user.setAvatar(data);
         userRepository.save(user);
         return ResponseEntity.ok("200");
     }
