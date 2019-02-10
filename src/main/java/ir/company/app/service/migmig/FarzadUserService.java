@@ -399,6 +399,54 @@ public class FarzadUserService {
 
     }
 
+    @RequestMapping(value = "/1/category", method = RequestMethod.GET)
+    @Timed
+    @CrossOrigin(origins = "*")
+
+    public ResponseEntity<List<CategoryDTO>> category() throws JsonProcessingException {
+        User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin());
+
+        List<CategoryDTO> cat = new ArrayList<>();
+        CategoryDTO cat1 = new CategoryDTO();
+        cat1.setIcon("http://pashoo.com/icon.jpg");
+        cat1.setId(1);
+        cat1.setName("خانوادگی");
+        cat1.setSelected(false);
+        cat.add(cat1);
+        CategoryDTO cat2 = new CategoryDTO();
+        cat2.setIcon("http://pashoo.com/icon.jpg");
+        cat2.setId(2);
+        cat2.setName("بهداشت و سلامتی");
+        cat2.setSelected(false);
+        cat.add(cat2);
+        CategoryDTO cat3 = new CategoryDTO();
+        cat3.setIcon("http://pashoo.com/icon.jpg");
+        cat3.setId(3);
+        cat3.setName("آموزشی");
+        cat3.setSelected(false);
+        cat.add(cat3);
+        CategoryDTO cat4 = new CategoryDTO();
+        cat4.setIcon("http://pashoo.com/icon.jpg");
+        cat4.setId(4);
+        cat4.setName("ورزشی");
+        cat4.setSelected(false);
+        cat.add(cat4);
+        CategoryDTO cat5 = new CategoryDTO();
+        cat5.setIcon("http://pashoo.com/icon.jpg");
+        cat5.setId(5);
+        cat5.setName("عکاسی");
+        cat5.setSelected(false);
+        cat.add(cat5);
+        CategoryDTO cat6 = new CategoryDTO();
+        cat6.setIcon("http://pashoo.com/icon.jpg");
+        cat6.setId(6);
+        cat6.setName("میوه و غذا");
+        cat6.setSelected(false);
+        cat.add(cat6);
+        return ResponseEntity.ok(cat);
+
+    }
+
 
     @RequestMapping(value = "/1/tempUser", method = RequestMethod.POST)
     @Timed
