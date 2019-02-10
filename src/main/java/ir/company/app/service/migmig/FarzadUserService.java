@@ -379,17 +379,22 @@ public class FarzadUserService {
     @Timed
     @CrossOrigin(origins = "*")
 
-    public ResponseEntity<?> profile(@RequestBody String username) throws JsonProcessingException {
+    public ResponseEntity<?> setProfile(@RequestBody ProfileDTO profileDTO) throws JsonProcessingException {
+        User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin());
+
+        return ResponseEntity.ok(profileDTO);
+
+    }
+
+
+    @RequestMapping(value = "/1/profile", method = RequestMethod.GET)
+    @Timed
+    @CrossOrigin(origins = "*")
+
+    public ResponseEntity<?> getProfile(@RequestBody String username) throws JsonProcessingException {
         ProfileDTO profileDTO = new ProfileDTO();
-        User user = userRepository.findOneByLogin(username);
-        profileDTO.avatar = user.getAvatar();
-        profileDTO.setUsername(user.getLogin());
-        profileDTO.guest = user.getGuest();
-        Query q = em.createNativeQuery("SELECT * FROM (SELECT id,row_number() OVER (ORDER BY score DESC) FROM jhi_user ) as gr WHERE  id =?");
-        q.setParameter(1, user.getId());
-        Object[] o = (Object[]) q.getSingleResult();
-        profileDTO.rating = Integer.valueOf(String.valueOf(o[1]));
-        profileDTO.avatars = user.getAvatars().stream().map(Avatar::getIcon).collect(Collectors.toList());
+        User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin());
+
         return ResponseEntity.ok(profileDTO);
 
     }
