@@ -13,6 +13,7 @@ import ir.company.app.repository.AuthorityRepository;
 import ir.company.app.repository.ErrorLogRepository;
 import ir.company.app.repository.UserRepository;
 import ir.company.app.security.AuthoritiesConstants;
+import ir.company.app.security.SecurityUtils;
 import ir.company.app.security.jwt.JWTConfigurer;
 import ir.company.app.security.jwt.TokenProvider;
 import ir.company.app.service.UserService;
@@ -104,7 +105,7 @@ public class FarzadUserService {
 
         if (user == null) {
 
-             user = new User();
+            user = new User();
             user.setLogin(userDTO.getMobile());
             user.setActivated(true);
             user.setCreatedBy("system");
@@ -154,10 +155,10 @@ public class FarzadUserService {
 
     public ResponseEntity<?> changeAvatar(@Valid @RequestBody String data) {
 
-        String[] s = data.split(",");
-        User user = userRepository.findOneByLogin(s[1].toLowerCase());
+//        String[] s = data.split(",");
+        User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin());
 
-        user.setAvatar(s[0]);
+        user.setAvatar(data);
         userRepository.save(user);
         return ResponseEntity.ok("200");
     }
@@ -378,18 +379,71 @@ public class FarzadUserService {
     @Timed
     @CrossOrigin(origins = "*")
 
-    public ResponseEntity<?> profile(@RequestBody String username) throws JsonProcessingException {
-        ProfileDTO profileDTO = new ProfileDTO();
-        User user = userRepository.findOneByLogin(username);
-        profileDTO.avatar = user.getAvatar();
-        profileDTO.setUsername(user.getLogin());
-        profileDTO.guest = user.getGuest();
-        Query q = em.createNativeQuery("SELECT * FROM (SELECT id,row_number() OVER (ORDER BY score DESC) FROM jhi_user ) as gr WHERE  id =?");
-        q.setParameter(1, user.getId());
-        Object[] o = (Object[]) q.getSingleResult();
-        profileDTO.rating = Integer.valueOf(String.valueOf(o[1]));
-        profileDTO.avatars = user.getAvatars().stream().map(Avatar::getIcon).collect(Collectors.toList());
+    public ResponseEntity<?> setProfile(@RequestBody ProfileDTO profileDTO) throws JsonProcessingException {
+        User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin());
+
         return ResponseEntity.ok(profileDTO);
+
+    }
+
+
+    @RequestMapping(value = "/1/profile", method = RequestMethod.GET)
+    @Timed
+    @CrossOrigin(origins = "*")
+
+    public ResponseEntity<?> getProfile(@RequestBody String username) throws JsonProcessingException {
+        ProfileDTO profileDTO = new ProfileDTO();
+        User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin());
+
+        return ResponseEntity.ok(profileDTO);
+
+    }
+
+    @RequestMapping(value = "/1/category", method = RequestMethod.GET)
+    @Timed
+    @CrossOrigin(origins = "*")
+
+    public ResponseEntity<List<CategoryDTO>> category() throws JsonProcessingException {
+        User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin());
+
+        List<CategoryDTO> cat = new ArrayList<>();
+        CategoryDTO cat1 = new CategoryDTO();
+        cat1.setIcon("http://pashoo.com/icon.jpg");
+        cat1.setId(1);
+        cat1.setName("خانوادگی");
+        cat1.setSelected(false);
+        cat.add(cat1);
+        CategoryDTO cat2 = new CategoryDTO();
+        cat2.setIcon("http://pashoo.com/icon.jpg");
+        cat2.setId(2);
+        cat2.setName("بهداشت و سلامتی");
+        cat2.setSelected(false);
+        cat.add(cat2);
+        CategoryDTO cat3 = new CategoryDTO();
+        cat3.setIcon("http://pashoo.com/icon.jpg");
+        cat3.setId(3);
+        cat3.setName("آموزشی");
+        cat3.setSelected(false);
+        cat.add(cat3);
+        CategoryDTO cat4 = new CategoryDTO();
+        cat4.setIcon("http://pashoo.com/icon.jpg");
+        cat4.setId(4);
+        cat4.setName("ورزشی");
+        cat4.setSelected(false);
+        cat.add(cat4);
+        CategoryDTO cat5 = new CategoryDTO();
+        cat5.setIcon("http://pashoo.com/icon.jpg");
+        cat5.setId(5);
+        cat5.setName("عکاسی");
+        cat5.setSelected(false);
+        cat.add(cat5);
+        CategoryDTO cat6 = new CategoryDTO();
+        cat6.setIcon("http://pashoo.com/icon.jpg");
+        cat6.setId(6);
+        cat6.setName("میوه و غذا");
+        cat6.setSelected(false);
+        cat.add(cat6);
+        return ResponseEntity.ok(cat);
 
     }
 

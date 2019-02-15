@@ -9,44 +9,67 @@ import java.util.List;
  */
 public class ProfileDTO {
 
-    private String username;
-    public int coins;
-    public int level;
-    public boolean guest = false;
-    public int gem;
-    public int win;
-    public int lose;
-    public int draw;
-    public int winInRow = 0;
-    public int specialGame = 0;
-    public int goldCup = 0;
-    public int silverCup = 0;
-    public int bronzeCup = 0;
-    public double puzzle = 0d;
-    public double run = 0d;
-    public double skill = 0d;
-    public double sport = 0d;
-   public List<String> avatars= new ArrayList<>();
+    private String firstName;
+    private String lastName;
+    private String telegram;
+    private String instagram;
+    private String birthdate;
+    private String email;
+    private Gender gender;
 
-    public long score;
-    public int maxWinInRow = 0;
-    public String avatar;
-    public Integer rating;
-
-    public String getUsername() {
-        return username;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getAvatar() {
-        return avatar;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
+    public String getTelegram() {
+        return telegram;
+    }
+
+    public void setTelegram(String telegram) {
+        this.telegram = telegram;
+    }
+
+    public String getInstagram() {
+        return instagram;
+    }
+
+    public void setInstagram(String instagram) {
+        this.instagram = instagram;
+    }
+
+    public String getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
 }
