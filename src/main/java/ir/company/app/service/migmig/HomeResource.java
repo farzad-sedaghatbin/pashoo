@@ -69,8 +69,8 @@ public class HomeResource {
         event2.setTitle("قرار دو نفره");
         event2.setPricing(PriceType.DUTCH_TREAT);
         event2.setScore(5f);
-        event1.setTime("20:00");
-        event1.setDate("1397/11/28");
+        event2.setTime("20:00");
+        event2.setDate("1397/11/28");
 
 
         event3.setCode("234");
@@ -78,8 +78,8 @@ public class HomeResource {
         event3.setTitle("کلاس نقاشی");
         event3.setPricing(PriceType.NON_FREE);
         event3.setScore(3f);
-        event1.setTime("12:30");
-        event1.setDate("1397/11/28");
+        event3.setTime("12:30");
+        event3.setDate("1397/11/28");
 
 
         event4.setCode("456");
@@ -87,8 +87,8 @@ public class HomeResource {
         event4.setTitle("فوتبال سالنی");
         event4.setPricing(PriceType.DUTCH_TREAT);
         event4.setScore(4.2f);
-        event1.setTime("21:00");
-        event1.setDate("1397/11/28");
+        event4.setTime("21:00");
+        event4.setDate("1397/11/28");
 
 
         eventDTOS.add(event1);
