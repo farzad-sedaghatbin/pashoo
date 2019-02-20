@@ -53,7 +53,7 @@ public class HomeResource {
 
         EventDTO event1 = new EventDTO();
         event1.setCode("123");
-        event1.setPic("http://pashoo.com/pic.jpg");
+        event1.setPic("https://media.glassdoor.com/l/00/05/01/26/mhw-mt-shasta-climbing-event.jpg");
         event1.setTitle("کوه نوردی");
         event1.setPricing(PriceType.FREE);
         event1.setScore(4.5f);
@@ -65,7 +65,7 @@ public class HomeResource {
         EventDTO event4 = new EventDTO();
 
         event2.setCode("567");
-        event2.setPic("http://pashoo.com/pic.jpg");
+        event2.setPic("https://www.parship.ie/pics/pictures/en_IE/single-life_dating-for-true-love282x172.jpg");
         event2.setTitle("قرار دو نفره");
         event2.setPricing(PriceType.DUTCH_TREAT);
         event2.setScore(5f);
@@ -74,7 +74,7 @@ public class HomeResource {
 
 
         event3.setCode("234");
-        event3.setPic("http://pashoo.com/pic.jpg");
+        event3.setPic("https://d1zpvjny0s6omk.cloudfront.net/media/fileupload/2015/10/12/lombardi_stanzione-3521.jpg");
         event3.setTitle("کلاس نقاشی");
         event3.setPricing(PriceType.NON_FREE);
         event3.setScore(3f);
@@ -83,7 +83,7 @@ public class HomeResource {
 
 
         event4.setCode("456");
-        event4.setPic("http://pashoo.com/pic.jpg");
+        event4.setPic("https://www.bransoncc.com/wp-content/uploads/2016/04/Soccer2.jpg");
         event4.setTitle("فوتبال سالنی");
         event4.setPricing(PriceType.DUTCH_TREAT);
         event4.setScore(4.2f);
