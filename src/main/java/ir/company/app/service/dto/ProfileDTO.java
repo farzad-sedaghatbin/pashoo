@@ -12,6 +12,7 @@ public class ProfileDTO {
     private String firstName;
     private String lastName;
     private String telegram;
+    private String avatar;
     private String instagram;
     private String birthdate;
     private String email;
@@ -71,5 +72,13 @@ public class ProfileDTO {
 
     public void setGender(Gender gender) {
         this.gender = gender;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }
