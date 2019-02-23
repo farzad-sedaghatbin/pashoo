@@ -393,7 +393,7 @@ public class FarzadUserService {
     @Timed
     @CrossOrigin(origins = "*")
 
-    public ResponseEntity<ProfileDTO> getProfile(@RequestBody String username) throws JsonProcessingException {
+    public ResponseEntity<ProfileDTO> getProfile() throws JsonProcessingException {
         ProfileDTO profileDTO = new ProfileDTO();
         User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin());
 
