@@ -40,7 +40,7 @@ public class EventResource {
     @GetMapping(value = "map")
     @Timed
     @CrossOrigin(origins = "*")
-    public ResponseEntity<List<MapEventDTO>> events(@RequestParam("type") EventType eventType) {
+    public ResponseEntity<List<MapEventDTO>> events(@RequestParam("latitude") Double latitude,@RequestParam("longitude") Double longitude) {
         List<MapEventDTO> eventDTOS = new ArrayList<>();
 
         MapEventDTO event1 = new MapEventDTO();
