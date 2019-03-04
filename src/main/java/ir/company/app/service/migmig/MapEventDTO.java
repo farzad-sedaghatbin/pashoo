@@ -10,6 +10,7 @@ public class MapEventDTO {
     private String time;
     private double latitude;
     private double longitude;
+    private int categoryId;
 
 
     public String getDate() {
@@ -82,5 +83,13 @@ public class MapEventDTO {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
     }
 }

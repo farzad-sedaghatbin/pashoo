@@ -50,6 +50,8 @@ public class EventResource {
         event1.setPricing(PriceType.FREE);
         event1.setScore(4.5f);
         event1.setTime("07:00");
+        event1.setTime("07:00");
+        event1.setCategoryId(1);
         event1.setDate("1397/11/28");
         event1.setLatitude(35.713107);
         event1.setLongitude(51.412740);
@@ -66,6 +68,7 @@ public class EventResource {
         event2.setTime("20:00");
         event2.setDate("1397/11/28");
         event2.setLatitude(35.714558);
+        event2.setCategoryId(2);
         event2.setLongitude(51.414440);
 
         event3.setCode("234");
@@ -77,6 +80,8 @@ public class EventResource {
         event3.setDate("1397/11/28");
         event3.setLatitude(35.716020);
         event3.setLongitude(51.425097);
+        event3.setCategoryId(3);
+
 
         event4.setCode("456");
         event4.setPic("https://www.bransoncc.com/wp-content/uploads/2016/04/Soccer2.jpg");
@@ -87,6 +92,8 @@ public class EventResource {
         event4.setDate("1397/11/28");
         event4.setLatitude(35.720862);
         event4.setLongitude(51.426506);
+        event4.setCategoryId(4);
+
 
         eventDTOS.add(event1);
         eventDTOS.add(event2);
