@@ -8,6 +8,8 @@ public class EventDTO {
     private String pic;
     private String date;
     private String time;
+    private String creator;
+    private boolean editable;
 
 
     public String getDate() {
@@ -64,5 +66,21 @@ public class EventDTO {
 
     public void setPic(String pic) {
         this.pic = pic;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setEditable(boolean editable) {
+        this.editable = editable;
+    }
+
+    public boolean getEditable() {
+        return editable;
     }
 }

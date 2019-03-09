@@ -13,7 +13,7 @@ import java.util.List;
 public class EventResource {
 
 
-    @GetMapping(value = "/{code}/detail")
+    @GetMapping(value = "{code}/detail")
     @Timed
     @CrossOrigin(origins = "*")
     public ResponseEntity<DetailEventDTO> myEvents(@PathVariable("code") String code) {
@@ -36,11 +36,27 @@ public class EventResource {
 
     }
 
+    @PostMapping(value = "")
+    @Timed
+    @CrossOrigin(origins = "*")
+    public ResponseEntity<CreateEventDTO> createEvent(@RequestBody CreateEventDTO createEventDTO) {
+
+        createEventDTO.setId(10l);
+        return ResponseEntity.ok(createEventDTO);
+    }
+
+    @PutMapping(value = "")
+    @Timed
+    @CrossOrigin(origins = "*")
+    public ResponseEntity<CreateEventDTO> updateEvent(@RequestBody CreateEventDTO createEventDTO) {
+
+        return ResponseEntity.ok(createEventDTO);
+    }
 
     @GetMapping(value = "map")
     @Timed
     @CrossOrigin(origins = "*")
-    public ResponseEntity<List<MapEventDTO>> events(@RequestParam("latitude") Double latitude,@RequestParam("longitude") Double longitude) {
+    public ResponseEntity<List<MapEventDTO>> events(@RequestParam("latitude") Double latitude, @RequestParam("longitude") Double longitude) {
         List<MapEventDTO> eventDTOS = new ArrayList<>();
 
         MapEventDTO event1 = new MapEventDTO();

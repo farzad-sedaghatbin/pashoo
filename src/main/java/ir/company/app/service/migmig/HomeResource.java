@@ -59,6 +59,8 @@ public class HomeResource {
         event1.setScore(4.5f);
         event1.setTime("07:00");
         event1.setDate("1397/11/28");
+        event1.setCreator("فرزاد صداقت بین");
+        event1.setEditable(false);
 
         EventDTO event2 = new EventDTO();
         EventDTO event3 = new EventDTO();
@@ -71,6 +73,8 @@ public class HomeResource {
         event2.setScore(5f);
         event2.setTime("20:00");
         event2.setDate("1397/11/28");
+        event2.setCreator("فرزاد صداقت بین");
+        event2.setEditable(true);
 
 
         event3.setCode("234");
@@ -80,6 +84,8 @@ public class HomeResource {
         event3.setScore(3f);
         event3.setTime("12:30");
         event3.setDate("1397/11/28");
+        event3.setCreator("فرزاد صداقت بین");
+        event3.setEditable(false);
 
 
         event4.setCode("456");
@@ -89,6 +95,8 @@ public class HomeResource {
         event4.setScore(4.2f);
         event4.setTime("21:00");
         event4.setDate("1397/11/28");
+        event4.setCreator("فرزاد صداقت بین");
+        event4.setEditable(false);
 
 
         eventDTOS.add(event1);
