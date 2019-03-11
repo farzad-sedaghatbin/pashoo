@@ -1,5 +1,7 @@
 package ir.company.app.service.migmig;
 
+import ir.company.app.service.dto.Gender;
+
 public class DetailEventDTO {
 
     private String code;
@@ -15,6 +17,9 @@ public class DetailEventDTO {
     private String telegram;
     private String instagram;
     private String tel;
+    private int participantNumber;
+    private int ageLimit;
+    private Gender gender;
 
     public String getCode() {
         return code;
@@ -118,5 +123,29 @@ public class DetailEventDTO {
 
     public void setTel(String tel) {
         this.tel = tel;
+    }
+
+    public void setParticipantNumber(int participantNumber) {
+        this.participantNumber = participantNumber;
+    }
+
+    public int getAgeLimit() {
+        return ageLimit;
+    }
+
+    public void setAgeLimit(int ageLimit) {
+        this.ageLimit = ageLimit;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public int getParticipantNumber() {
+        return participantNumber;
     }
 }

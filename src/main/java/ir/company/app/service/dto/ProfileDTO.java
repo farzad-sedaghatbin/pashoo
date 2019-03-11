@@ -1,9 +1,6 @@
 package ir.company.app.service.dto;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * A DTO representing a user's credentials
  */
@@ -14,9 +11,9 @@ public class ProfileDTO {
     private String telegram;
     private String avatar;
     private String instagram;
-    private String birthdate;
     private String email;
     private Gender gender;
+    private int birthYear;
 
     public String getFirstName() {
         return firstName;
@@ -50,13 +47,7 @@ public class ProfileDTO {
         this.instagram = instagram;
     }
 
-    public String getBirthdate() {
-        return birthdate;
-    }
 
-    public void setBirthdate(String birthdate) {
-        this.birthdate = birthdate;
-    }
 
     public String getEmail() {
         return email;
@@ -80,5 +71,13 @@ public class ProfileDTO {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public void setBirthYear(int birthYear) {
+        this.birthYear = birthYear;
+    }
+
+    public int getBirthYear() {
+        return birthYear;
     }
 }

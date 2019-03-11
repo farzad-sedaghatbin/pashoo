@@ -1,5 +1,6 @@
 package ir.company.app.service.migmig;
 
+import ir.company.app.service.dto.Gender;
 import org.springframework.web.multipart.MultipartFile;
 
 public class CreateEventDTO {
@@ -13,12 +14,11 @@ public class CreateEventDTO {
     private double latitude;
     private double longitude;
     private int categoryId;
-    private String owner;
-    private String tags;
+    private int ageLimit;
+    private Gender gender;
     private String address;
     private String tel;
     private Long id;
-
 
 
     public String getDate() {
@@ -101,21 +101,6 @@ public class CreateEventDTO {
         this.pic = pic;
     }
 
-    public String getOwner() {
-        return owner;
-    }
-
-    public void setOwner(String owner) {
-        this.owner = owner;
-    }
-
-    public String getTags() {
-        return tags;
-    }
-
-    public void setTags(String tags) {
-        this.tags = tags;
-    }
 
     public String getAddress() {
         return address;
@@ -139,5 +124,21 @@ public class CreateEventDTO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public int getAgeLimit() {
+        return ageLimit;
+    }
+
+    public void setAgeLimit(int ageLimit) {
+        this.ageLimit = ageLimit;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 }
