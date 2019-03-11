@@ -87,23 +87,6 @@ public class EventResource {
 
     }
 
-    @PostMapping(value = "{code}/approved")
-    @Timed
-    @CrossOrigin(origins = "*")
-    public ResponseEntity<HttpStatus> approved(@PathVariable("code") String code, String requestId) {
-
-        return ResponseEntity.ok(HttpStatus.OK);
-
-    }
-
-    @PostMapping(value = "{code}/cancel")
-    @Timed
-    @CrossOrigin(origins = "*")
-    public ResponseEntity<HttpStatus> cancel(@PathVariable("code") String code, String requestId) {
-
-        return ResponseEntity.ok(HttpStatus.OK);
-
-    }
 
     @PostMapping(value = "{code}/join")
     @Timed
