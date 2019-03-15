@@ -59,6 +59,7 @@ public class HomeResource {
         event1.setScore(4.5f);
         event1.setTime("07:00");
         event1.setDate("1397/11/28");
+        event1.setCategoryId(2);
         event1.setCreator("فرزاد صداقت بین");
         event1.setEditable(false);
 
@@ -75,6 +76,7 @@ public class HomeResource {
         event2.setDate("1397/11/28");
         event2.setCreator("فرزاد صداقت بین");
         event2.setEditable(true);
+        event2.setCategoryId(3);
 
 
         event3.setCode("234");
@@ -86,6 +88,7 @@ public class HomeResource {
         event3.setDate("1397/11/28");
         event3.setCreator("فرزاد صداقت بین");
         event3.setEditable(false);
+        event3.setCategoryId(1);
 
 
         event4.setCode("456");
@@ -97,6 +100,7 @@ public class HomeResource {
         event4.setDate("1397/11/28");
         event4.setCreator("فرزاد صداقت بین");
         event4.setEditable(false);
+        event4.setCategoryId(7);
 
 
         eventDTOS.add(event1);

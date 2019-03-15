@@ -20,6 +20,8 @@ public class DetailEventDTO {
     private int participantNumber;
     private int ageLimit;
     private Gender gender;
+    private double latitude;
+    private double longitude;
 
     public String getCode() {
         return code;
@@ -147,5 +149,21 @@ public class DetailEventDTO {
 
     public int getParticipantNumber() {
         return participantNumber;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
     }
 }

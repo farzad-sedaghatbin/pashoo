@@ -39,7 +39,8 @@ public class EventResource {
         eventDTO.setTel("+989128626242");
         eventDTO.setTelegram("http://telegram.me/pashoo");
         eventDTO.setParticipantNumber(20);
-
+        eventDTO.setLatitude(35.714558);
+        eventDTO.setLongitude(51.414440);
         return ResponseEntity.ok(eventDTO);
 
     }
@@ -153,8 +154,8 @@ public class EventResource {
         event2.setScore(5f);
         event2.setTime("20:00");
         event2.setDate("1397/11/28");
-        event2.setLatitude(35.714558);
         event2.setCategoryId(2);
+        event2.setLatitude(35.714558);
         event2.setLongitude(51.414440);
 
         event3.setCode("234");
