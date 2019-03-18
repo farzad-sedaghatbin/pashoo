@@ -39,6 +39,7 @@ public class EventResource {
         eventDTO.setTel("+989128626242");
         eventDTO.setTelegram("http://telegram.me/pashoo");
         eventDTO.setParticipantNumber(20);
+        eventDTO.setView(200);
         eventDTO.setLatitude(35.714558);
         eventDTO.setLongitude(51.414440);
         return ResponseEntity.ok(eventDTO);
@@ -72,8 +73,8 @@ public class EventResource {
         profileDTO.setTelegram("farzad");
         profileDTO.setInstagram("farzad_sedaghatbin");
         profileDTO.setLastName("صداقت بین");
-        Page<ProfileDTO> page = new PageImpl(profileDTOS, new PageRequest(0, 1), 1);
         profileDTOS.add(profileDTO);
+        Page<ProfileDTO> page = new PageImpl(profileDTOS, new PageRequest(0, 1), 1);
         return ResponseEntity.ok(page);
 
     }

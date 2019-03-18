@@ -22,6 +22,7 @@ public class DetailEventDTO {
     private Gender gender;
     private double latitude;
     private double longitude;
+    private int view;
 
     public String getCode() {
         return code;
@@ -165,5 +166,13 @@ public class DetailEventDTO {
 
     public double getLongitude() {
         return longitude;
+    }
+
+    public void setView(int view) {
+        this.view = view;
+    }
+
+    public int getView() {
+        return view;
     }
 }
