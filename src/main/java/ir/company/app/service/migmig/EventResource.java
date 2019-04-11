@@ -135,6 +135,7 @@ public class EventResource {
         profileDTO.setEmail("farzad.sedaghatbin@gmail.com");
         profileDTO.setFirstName("فرزاد");
         profileDTO.setGender(Gender.MALE);
+        profileDTO.setId(1l);
         profileDTO.setTelegram("farzad");
         profileDTO.setInstagram("farzad_sedaghatbin");
         profileDTO.setLastName("صداقت بین");

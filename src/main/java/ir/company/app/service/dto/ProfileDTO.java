@@ -14,6 +14,7 @@ public class ProfileDTO {
     private String email;
     private Gender gender;
     private int birthYear;
+    private long id;
 
     public String getFirstName() {
         return firstName;
@@ -79,5 +80,13 @@ public class ProfileDTO {
 
     public int getBirthYear() {
         return birthYear;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getId() {
+        return id;
     }
 }
