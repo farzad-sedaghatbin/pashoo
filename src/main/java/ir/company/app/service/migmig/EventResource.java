@@ -144,6 +144,20 @@ public class EventResource {
 
     }
 
+    @GetMapping(value = "{code}/share")
+    @Timed
+    @CrossOrigin(origins = "*")
+    public ResponseEntity<ShareDTO> share(@PathVariable("code") String code, Pageable pageable) {
+
+        ShareDTO shareDto= new ShareDTO();
+        shareDto.setUser("فرزاد صداقت");
+        shareDto.setContent("میخواد با شما رویداد پایه ای بریم کوه را به اشتراک بگذارد دریافت پاشو از ");
+        shareDto.setAndroidMarketURL("https://cafebazaar.ir");
+        shareDto.setIosMarketURL("https://sibapp.com");
+        return ResponseEntity.ok(shareDto);
+
+    }
+
 
     @PostMapping(value = "{code}/rating")
     @Timed
