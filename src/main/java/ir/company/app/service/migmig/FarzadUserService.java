@@ -541,7 +541,7 @@ public class FarzadUserService {
 
     }
 
-    @PostMapping(value = "category/favorite")
+    @PostMapping(value = "category/favourite")
     @Timed
     @CrossOrigin(origins = "*")
     public ResponseEntity<String> getTitles(@RequestBody List<Long> ids) {
