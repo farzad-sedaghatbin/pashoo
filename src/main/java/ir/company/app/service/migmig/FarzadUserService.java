@@ -7,7 +7,6 @@ import com.kavenegar.sdk.excepctions.ApiException;
 import com.kavenegar.sdk.excepctions.HttpException;
 import ir.company.app.config.Constants;
 import ir.company.app.domain.Authority;
-import ir.company.app.domain.entity.Avatar;
 import ir.company.app.domain.entity.User;
 import ir.company.app.repository.AuthorityRepository;
 import ir.company.app.repository.ErrorLogRepository;
@@ -31,13 +30,11 @@ import org.springframework.web.bind.annotation.*;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.time.ZonedDateTime;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/")
@@ -544,5 +541,12 @@ public class FarzadUserService {
 
     }
 
+    @PostMapping(value = "category/favorite")
+    @Timed
+    @CrossOrigin(origins = "*")
+    public ResponseEntity<String> getTitles(@RequestBody List<Long> ids) {
 
+        return ResponseEntity.ok("200");
+
+    }
 }

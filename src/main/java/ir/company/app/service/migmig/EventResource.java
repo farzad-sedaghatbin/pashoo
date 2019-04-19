@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -124,6 +125,7 @@ public class EventResource {
 
     }
 
+
     @GetMapping(value = "{code}/participants")
     @Timed
     @CrossOrigin(origins = "*")
@@ -163,7 +165,7 @@ public class EventResource {
     @PostMapping(value = "{code}/rating")
     @Timed
     @CrossOrigin(origins = "*")
-    public ResponseEntity<HttpStatus> rating(@PathVariable("code") String code, int rating) {
+    public ResponseEntity<HttpStatus> rating(@PathVariable("code") String code, @RequestParam("rating")Double rating) {
 
         return ResponseEntity.ok(HttpStatus.OK);
 
@@ -195,6 +197,16 @@ public class EventResource {
 
         createEventDTO.setId(10l);
         return ResponseEntity.ok(createEventDTO);
+    }
+
+    @PostMapping(value = "/{code}/upload")
+    @Timed
+    @CrossOrigin(origins = "*")
+    public ResponseEntity<String> uploadFile(@RequestParam MultipartFile[] multipartFile) {
+
+//        createEventDTO.setId(10l);
+//        return ResponseEntity.ok(createEventDTO);
+      return ResponseEntity.ok(multipartFile[0].getName());
     }
 
     @PutMapping(value = "")

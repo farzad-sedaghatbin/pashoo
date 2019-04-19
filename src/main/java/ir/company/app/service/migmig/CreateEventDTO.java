@@ -8,7 +8,6 @@ public class CreateEventDTO {
     private String title;
     private PriceType pricing;
     private float score;
-    private MultipartFile[] pic;
     private String date;
     private String time;
     private double latitude;
@@ -92,15 +91,6 @@ public class CreateEventDTO {
     public int getCategoryId() {
         return categoryId;
     }
-
-    public MultipartFile[] getPic() {
-        return pic;
-    }
-
-    public void setPic(MultipartFile[] pic) {
-        this.pic = pic;
-    }
-
 
     public String getAddress() {
         return address;
