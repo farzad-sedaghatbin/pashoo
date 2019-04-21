@@ -153,11 +153,11 @@ public class FarzadUserService {
     public ResponseEntity<?> changeAvatar(@Valid @RequestBody String data) {
 
 //        String[] s = data.split(",");
-        User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin());
+//        User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin());
 
-        user.setAvatar(data);
-        userRepository.save(user);
-        return ResponseEntity.ok("200");
+//        user.setAvatar(data);
+//        userRepository.save(user);
+        return ResponseEntity.ok(data);
     }
 
 
