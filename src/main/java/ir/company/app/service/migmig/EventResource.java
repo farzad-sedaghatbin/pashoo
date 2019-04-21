@@ -162,7 +162,7 @@ public class EventResource {
     }
 
 
-    @PostMapping(value = "{code}/rating")
+    @PostMapping(value = "{code}/ratingd")
     @Timed
     @CrossOrigin(origins = "*")
     public ResponseEntity<HttpStatus> rating(@PathVariable("code") String code, @RequestParam("rating")Double rating) {
@@ -202,7 +202,7 @@ public class EventResource {
     @PostMapping(value = "/{code}/upload")
     @Timed
     @CrossOrigin(origins = "*")
-    public ResponseEntity<String> uploadFile(@RequestParam MultipartFile[] multipartFile) {
+    public ResponseEntity<String> uploadFile(@PathVariable("code") String code,@RequestParam("file") MultipartFile[] multipartFile) {
 
 //        createEventDTO.setId(10l);
 //        return ResponseEntity.ok(createEventDTO);
