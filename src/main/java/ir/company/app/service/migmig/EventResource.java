@@ -20,6 +20,7 @@ import java.util.List;
 @RequestMapping("/api/v1/events/")
 public class EventResource {
 
+    public static  int i=0;
 
     @GetMapping(value = "{code}/detail")
     @Timed
@@ -41,6 +42,7 @@ public class EventResource {
         eventDTO.setTelegram("http://telegram.me/pashoo");
         eventDTO.setParticipantNumber(20);
         eventDTO.setView(200);
+        eventDTO.setJoinStatus(JoinStatus.values()[i++%3]);
         eventDTO.setLatitude(35.714558);
         eventDTO.setLongitude(51.414440);
         return ResponseEntity.ok(eventDTO);
@@ -162,7 +164,7 @@ public class EventResource {
     }
 
 
-    @PostMapping(value = "{code}/ratingd")
+    @PostMapping(value = "{code}/rating")
     @Timed
     @CrossOrigin(origins = "*")
     public ResponseEntity<HttpStatus> rating(@PathVariable("code") String code, @RequestParam("rating")Double rating) {

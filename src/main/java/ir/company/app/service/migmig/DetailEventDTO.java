@@ -23,6 +23,7 @@ public class DetailEventDTO {
     private double latitude;
     private double longitude;
     private int view;
+    private JoinStatus joinStatus;
 
     public String getCode() {
         return code;
@@ -174,5 +175,13 @@ public class DetailEventDTO {
 
     public int getView() {
         return view;
+    }
+
+    public JoinStatus getJoinStatus() {
+        return joinStatus;
+    }
+
+    public void setJoinStatus(JoinStatus joinStatus) {
+        this.joinStatus = joinStatus;
     }
 }
