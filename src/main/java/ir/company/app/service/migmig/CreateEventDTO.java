@@ -13,7 +13,8 @@ public class CreateEventDTO {
     private double latitude;
     private double longitude;
     private int categoryId;
-    private int ageLimit;
+    private int ageLimitFrom;
+    private int ageLimitTo;
     private Gender gender;
     private String address;
     private String tel;
@@ -116,19 +117,27 @@ public class CreateEventDTO {
         this.id = id;
     }
 
-    public int getAgeLimit() {
-        return ageLimit;
-    }
-
-    public void setAgeLimit(int ageLimit) {
-        this.ageLimit = ageLimit;
-    }
-
     public Gender getGender() {
         return gender;
     }
 
     public void setGender(Gender gender) {
         this.gender = gender;
+    }
+
+    public int getAgeLimitFrom() {
+        return ageLimitFrom;
+    }
+
+    public void setAgeLimitFrom(int ageLimitFrom) {
+        this.ageLimitFrom = ageLimitFrom;
+    }
+
+    public int getAgeLimitTo() {
+        return ageLimitTo;
+    }
+
+    public void setAgeLimitTo(int ageLimitTo) {
+        this.ageLimitTo = ageLimitTo;
     }
 }

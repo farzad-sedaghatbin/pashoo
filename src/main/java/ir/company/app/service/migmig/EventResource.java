@@ -42,6 +42,8 @@ public class EventResource {
         eventDTO.setTelegram("http://telegram.me/pashoo");
         eventDTO.setParticipantNumber(20);
         eventDTO.setView(200);
+        eventDTO.setAgeLimitFrom(10);
+        eventDTO.setAgeLimitTo(40);
         eventDTO.setJoinStatus(JoinStatus.values()[i++%3]);
         eventDTO.setLatitude(35.714558);
         eventDTO.setLongitude(51.414440);

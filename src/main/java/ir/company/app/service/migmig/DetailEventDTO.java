@@ -18,12 +18,14 @@ public class DetailEventDTO {
     private String instagram;
     private String tel;
     private int participantNumber;
-    private int ageLimit;
+    private int ageLimitFrom;
+    private int ageLimitTo;
     private Gender gender;
     private double latitude;
     private double longitude;
     private int view;
     private JoinStatus joinStatus;
+
 
     public String getCode() {
         return code;
@@ -133,14 +135,6 @@ public class DetailEventDTO {
         this.participantNumber = participantNumber;
     }
 
-    public int getAgeLimit() {
-        return ageLimit;
-    }
-
-    public void setAgeLimit(int ageLimit) {
-        this.ageLimit = ageLimit;
-    }
-
     public Gender getGender() {
         return gender;
     }
@@ -183,5 +177,21 @@ public class DetailEventDTO {
 
     public void setJoinStatus(JoinStatus joinStatus) {
         this.joinStatus = joinStatus;
+    }
+
+    public int getAgeLimitFrom() {
+        return ageLimitFrom;
+    }
+
+    public void setAgeLimitFrom(int ageLimitFrom) {
+        this.ageLimitFrom = ageLimitFrom;
+    }
+
+    public int getAgeLimitTo() {
+        return ageLimitTo;
+    }
+
+    public void setAgeLimitTo(int ageLimitTo) {
+        this.ageLimitTo = ageLimitTo;
     }
 }
