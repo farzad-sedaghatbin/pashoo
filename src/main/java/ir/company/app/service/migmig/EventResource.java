@@ -171,6 +171,15 @@ public class EventResource {
 
     }
 
+    @PutMapping(value = "{code}/view")
+    @Timed
+    @CrossOrigin(origins = "*")
+    public ResponseEntity<HttpStatus> view(@PathVariable("code") String code) {
+
+        return ResponseEntity.ok(HttpStatus.OK);
+
+    }
+
 
     @PostMapping(value = "{code}/join")
     @Timed
