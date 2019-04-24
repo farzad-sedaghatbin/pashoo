@@ -25,6 +25,7 @@ public class DetailEventDTO {
     private double longitude;
     private int view;
     private JoinStatus joinStatus;
+    private String creator;
 
 
     public String getCode() {
@@ -193,5 +194,13 @@ public class DetailEventDTO {
 
     public void setAgeLimitTo(int ageLimitTo) {
         this.ageLimitTo = ageLimitTo;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
+    public String getCreator() {
+        return creator;
     }
 }

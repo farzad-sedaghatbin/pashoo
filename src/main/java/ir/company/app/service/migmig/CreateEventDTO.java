@@ -6,6 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class CreateEventDTO {
     private String code;
     private String title;
+    private String description;
     private PriceType pricing;
     private float score;
     private String date;
@@ -139,5 +140,13 @@ public class CreateEventDTO {
 
     public void setAgeLimitTo(int ageLimitTo) {
         this.ageLimitTo = ageLimitTo;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

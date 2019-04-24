@@ -37,9 +37,9 @@ public class EventResource {
         eventDTO.setAddress("تهران دربند خیابان مژده پلاک 12");
         eventDTO.setCategory("ورزشی");
         eventDTO.setDescription("توضیحات این رویداد");
-        eventDTO.setInstagram("http://instagram.com/pashoo");
+        eventDTO.setInstagram("pashoo");
         eventDTO.setTel("+989128626242");
-        eventDTO.setTelegram("http://telegram.me/pashoo");
+        eventDTO.setTelegram("pashoo");
         eventDTO.setParticipantNumber(20);
         eventDTO.setView(200);
         eventDTO.setAgeLimitFrom(10);
@@ -47,6 +47,7 @@ public class EventResource {
         eventDTO.setJoinStatus(JoinStatus.values()[i++%3]);
         eventDTO.setLatitude(35.714558);
         eventDTO.setLongitude(51.414440);
+        eventDTO.setCreator("فرزاد صداقت بین");
         return ResponseEntity.ok(eventDTO);
 
     }
