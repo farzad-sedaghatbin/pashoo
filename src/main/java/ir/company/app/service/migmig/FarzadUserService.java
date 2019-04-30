@@ -183,43 +183,43 @@ public class FarzadUserService {
 
     public ResponseEntity<?> inviteFriend(@Valid @RequestBody String data) {
         String[] s = data.split(",");
-        User user = userRepository.findOneByLogin(s[1].toLowerCase());
-        String returns;
-        if ((s[1] != "null") && user.getInvitedUser1() == null) {
-            User invited = userRepository.findOneByLogin(s[0].toLowerCase());
-            if (invited != null) {
-                userRepository.save(invited);
-                user.setInvitedUser1(invited);
-                returns = "200";
-            } else {
-                returns = "404";
-            }
-        } else if ((s[1] != "null" && s[1] != "") && user.getInvitedUser2() == null) {
-            User invited = userRepository.findOneByLogin(s[0].toLowerCase());
-            if (invited != null) {
-                userRepository.save(invited);
-                user.setInvitedUser2(invited);
-                returns = "200";
-            } else {
-                returns = "404";
-            }
-        } else if ((s[1] != "null" && s[1] != "") && user.getInvitedUser3() == null) {
-            User invited = userRepository.findOneByLogin(s[0].toLowerCase());
-            if (invited != null) {
+//        User user = userRepository.findOneByLogin(s[1].toLowerCase());
+//        String returns;
+//        if ((s[1] != "null") && user.getInvitedUser1() == null) {
+//            User invited = userRepository.findOneByLogin(s[0].toLowerCase());
+//            if (invited != null) {
+//                userRepository.save(invited);
+//                user.setInvitedUser1(invited);
+//                returns = "200";
+//            } else {
+//                returns = "404";
+//            }
+//        } else if ((s[1] != "null" && s[1] != "") && user.getInvitedUser2() == null) {
+//            User invited = userRepository.findOneByLogin(s[0].toLowerCase());
+//            if (invited != null) {
+//                userRepository.save(invited);
+//                user.setInvitedUser2(invited);
+//                returns = "200";
+//            } else {
+//                returns = "404";
+//            }
+//        } else if ((s[1] != "null" && s[1] != "") && user.getInvitedUser3() == null) {
+//            User invited = userRepository.findOneByLogin(s[0].toLowerCase());
+//            if (invited != null) {
+//
+//                user.setInvitedUser3(invited);
+//                userRepository.save(invited);
+//                returns = "200";
+//            } else {
+//                returns = "404";
+//            }
+//        } else {
+//            returns = "333";
+//        }
+//        userRepository.save(user);
 
-                user.setInvitedUser3(invited);
-                userRepository.save(invited);
-                returns = "200";
-            } else {
-                returns = "404";
-            }
-        } else {
-            returns = "333";
-        }
-        userRepository.save(user);
 
-
-        return ResponseEntity.ok(returns);
+        return ResponseEntity.ok("ok");
     }
 
 //    @RequestMapping(value = "forget", method = RequestMethod.POST)
