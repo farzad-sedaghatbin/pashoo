@@ -177,6 +177,49 @@ public class FarzadUserService {
 //        }
 //    }
 
+    @GetMapping(value = "ranks")
+    @Timed
+    @CrossOrigin(origins = "*")
+
+    public ResponseEntity<?> ranks() {
+
+        RecordDTO recordDTOS= new RecordDTO();
+    recordDTOS.rank=2;
+    recordDTOS.score=1200;
+    recordDTOS.users= new ArrayList<>();
+        RecordDTO.User u= new RecordDTO.User();
+        u.avatar="";
+        u.index=2;
+        u.score=1300;
+        u.user="farzad sedaghatbin";
+        RecordDTO.User u2= new RecordDTO.User();
+        u2.avatar="";
+        u2.index=1;
+        u2.score=1300;
+        u2.user="ali sedaghatbin";
+        RecordDTO.User u3= new RecordDTO.User();
+        u3.avatar="";
+        u3.index=3;
+        u3.score=1300;
+        u3.user="nazanin sedaghatbin";
+        RecordDTO.User u4= new RecordDTO.User();
+        u4.avatar="";
+        u4.index=4;
+        u4.score=1300;
+        u.user="farshad sedaghatbin";
+        RecordDTO.User u5= new RecordDTO.User();
+        u5.avatar="";
+        u5.index=5;
+        u5.score=1300;
+        u5.user="mohamad sedaghatbin";
+        recordDTOS.users.add(u);
+        recordDTOS.users.add(u2);
+        recordDTOS.users.add(u3);
+        recordDTOS.users.add(u4);
+        recordDTOS.users.add(u5);
+return  ResponseEntity.ok(recordDTOS);
+
+    }
     @RequestMapping(value = "inviteFriend", method = RequestMethod.POST)
     @Timed
     @CrossOrigin(origins = "*")

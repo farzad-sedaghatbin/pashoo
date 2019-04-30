@@ -6,9 +6,9 @@ import java.util.List;
  * Created by farzad on 8/10/2017.
  */
 public class RecordDTO {
-    public String rank;
+    public int rank;
     public List<User> users;
-    public Long score;
+    public int score;
 
     public static class User {
         public String avatar;
