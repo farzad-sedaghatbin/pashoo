@@ -15,6 +15,7 @@ public class ProfileDTO {
     private Gender gender;
     private int birthYear;
     private long id;
+    private String userCode;
 
     public String getFirstName() {
         return firstName;
@@ -88,5 +89,14 @@ public class ProfileDTO {
 
     public long getId() {
         return id;
+    }
+
+    public void setUserCode(String userCode) {
+
+        this.userCode = userCode;
+    }
+
+    public String getUserCode() {
+        return userCode;
     }
 }
