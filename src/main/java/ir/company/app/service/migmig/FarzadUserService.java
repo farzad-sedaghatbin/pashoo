@@ -181,7 +181,7 @@ public class FarzadUserService {
     @Timed
     @CrossOrigin(origins = "*")
 
-    public ResponseEntity<?> ranks() {
+    public ResponseEntity<RecordDTO> ranks() {
 
         RecordDTO recordDTOS= new RecordDTO();
         recordDTOS.setHelp("دعوت از دوستان 5 امتیاز\n" +
