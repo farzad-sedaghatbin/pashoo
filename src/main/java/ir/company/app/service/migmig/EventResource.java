@@ -48,6 +48,7 @@ public class EventResource {
         eventDTO.setLatitude(35.714558);
         eventDTO.setLongitude(51.414440);
         eventDTO.setCreator("فرزاد صداقت بین");
+        eventDTO.setCapacity(12);
         return ResponseEntity.ok(eventDTO);
 
     }
@@ -120,12 +121,12 @@ public class EventResource {
     @GetMapping(value = "{category}/titles")
     @Timed
     @CrossOrigin(origins = "*")
-    public ResponseEntity<List<String>> getTitles(@PathVariable("category") String category) {
-        List<String> titles = new ArrayList<>();
-        titles.add("پایه ای بریم فوتبال");
-        titles.add("پایه ای بریم دورهمی");
-        titles.add("پایه ای بریم سینما");
-        titles.add("پایه ای بریم کوه");
+    public ResponseEntity<List<titleDTO>> getTitles(@PathVariable("category") String category) {
+        List<titleDTO> titles = new ArrayList<>();
+        titles.add(new titleDTO("پایه ای بریم فوتبال",1l));
+        titles.add(new titleDTO("پایه ای بریم دورهمی",2l));
+        titles.add(new titleDTO("پایه ای بریم سینما",3l));
+        titles.add(new titleDTO("پایه ای بریم کوه",4l));
         return ResponseEntity.ok(titles);
 
     }
