@@ -11,6 +11,7 @@ public class EventDTO {
     private String creator;
     private boolean editable;
     private int categoryId;
+    private int view=20;
 
 
     public String getDate() {
@@ -87,6 +88,18 @@ public class EventDTO {
 
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public boolean isEditable() {
+        return editable;
+    }
+
+    public int getView() {
+        return view;
+    }
+
+    public void setView(int view) {
+        this.view = view;
     }
 
     public int getCategoryId() {
