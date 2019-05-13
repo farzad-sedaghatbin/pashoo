@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/comments")
-public class CommentResource {
+public class FarzadCommentResource {
 
 
     @GetMapping(value = "{eventCode}")
